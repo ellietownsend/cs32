@@ -1,0 +1,55 @@
+//
+//  Untitled.h
+//  project_two
+//
+//  Created by Ellie Townsend on 4/26/25.
+//
+ # 2.
+ First 12 popped off stack:
+ Currently popped off stack: 2,4
+ Currently popped off stack: 1,4
+ Currently popped off stack: 1,3
+ Currently popped off stack: 1,2
+ Currently popped off stack: 1,1
+ Currently popped off stack: 2,1
+ Currently popped off stack: 3,4
+ Currently popped off stack: 3,5
+ Currently popped off stack: 3,6
+ Currently popped off stack: 4,5
+ Currently popped off stack: 5,5
+ Currently popped off stack: 5,4
+ 
+ 
+# 4.
+First 12 dequeued from queue:
+Index dequeued: 2,4
+Index dequeued: 3,4
+Index dequeued: 1,4
+Index dequeued: 3,3
+Index dequeued: 2,4
+Index dequeued: 3,5
+Index dequeued: 1,3
+Index dequeued: 4,5
+Index dequeued: 3,6
+Index dequeued: 1,2
+Index dequeued: 5,5
+Index dequeued: 1,1
+Index dequeued: 6,5
+
+Explanation:
+How do the two algorithms differ from each other? (Hint: how and why do they visit cells in the maze in a different order?)
+
+The two algorithms differ from one another in how they go about finding the ending index, hense why they visit nodes in a different order.
+When using a stack:
+        1. The position we are currently at is pushed on the stack.
+        2. We then add every possible direction we could go into the stack.
+        3. We then go in the direction that was most recently added to the stack.
+        4. From this new index, we again add every possible position we can go, and add the most recent onto the stack.
+
+When using a queue:
+        1. The position we are currently at is enqueued in the queue. (This is the same process at the stack, hence why we pop or dequeue the same index in both processes)
+        2. We add every possible direction we could go into the queue.
+        3. For every possible direction we added, we then look at every one of their possible directions. This differes from a stack in which we fully follow one path, and backtrack if needed. A queue looks at each direction evenly.
+
+By using a stack we are exploring a direction as far as it can take us until it leads to a dead end, or we have found the ending index. If we have found a deadend, we then backtrack by popping an item off the stack, and then exploring its options. This attribute of popping off items is part of a stacks "LIFO" structure. This differs from a quene in which we explore all paths equally, without following one in a particular direction. This attribute of dequeueing  items is part of a stacks "FIFO" structure. This also means that with a queue, we will get the shortest path to our ending index.
+
